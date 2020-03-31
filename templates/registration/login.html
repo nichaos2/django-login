@@ -6,12 +6,15 @@ Login
 
 
 {% block content %}
+    
+<div style=" width: 100%; max-width:330px; padding:15px; margin: 0 auto;">
+        <h2>Login</h2>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Login</button>
+        </form>
+</div>
 
-    <h2>Login</h2>
-    <form method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Login</button>
-    </form>
 
 {% endblock %}
