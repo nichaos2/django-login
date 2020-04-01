@@ -1,3 +1,5 @@
+# http://jessenoller.com/blog/2011/12/19/quick-example-of-extending-usercreationform-in-django
+# modified from the above page
 from django import forms
 from .models import Profile
 
@@ -22,6 +24,8 @@ class UserCreateForm(UserCreationForm):
         user1.last_name = self.cleaned_data["last_name"]
         user1.email = self.cleaned_data["email"]
         location1 = self.cleaned_data["location"]
+
+        # For this to work I had to take of the post_save in the model Profile
         if commit:
             user1.save()
             profile = Profile(user = user1, location = location1)
