@@ -21,7 +21,14 @@ class CustomUserAdmin(UserAdmin):
     get_location.short_description = 'Location'
 
     def get_role(self, instance):
-        return instance.profile.role
+        role = instance.profile.role
+        if role == 1 :
+            role = 'Student'
+        elif role == 2 :
+            role = 'Teacher'
+        else:
+            role = 'Supervisor'
+        return role
     get_role.short_description = 'role'
 
     def get_inline_instances(self, request, obj=None):
