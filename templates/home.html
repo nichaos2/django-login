@@ -5,37 +5,34 @@
 
 {% if user.is_authenticated %}
 
-<p>Hi {{ user.username }}!</p>
+    <p>Hi {{ user.username }}! You are a {{ user.profile.role }}</p>
 
-{% if user.is_staff %}
-<h3>You are staff </h3>
-{% if user.username == 'admin' %}
-<p>Admin is cool</p>
-{% endif %}
+    {% if user.profile.role == 2 %}
+        <h3> You can grade  </h3>
 
-{% else %}
+    {% else %}
 
-<h4>You are NOT staff </h4>
-{% endif %}
+    <h4> You cannot grade </h4>
+    {% endif %} <!-- user.is_staff -->
 
 
-<br>
-<p><a href="{% url 'logout' %}">logout</a></p>
+    <br>
+    <p><a href="{% url 'logout' %}">logout</a></p>
 
 {% else %}
-<div style=" width: 100%; max-width:330px; padding:15px; margin: 0 auto;">
+    <div style=" width: 100%; max-width:330px; padding:15px; margin: 0 auto;">
 
-    <a href="{% url 'login' %}">Please Login</a>
-    <p>
-        or <br>
-        <a href="{% url 'signup' %}">Sign up </a> <br>
-        Your role will be given by the admin
-    </p>
-</div>
+        <a href="{% url 'login' %}">Please Login</a>
+        <p>
+            or <br>
+            <a href="{% url 'signup' %}">Sign up </a> <br>
+            Your role will be given by the admin
+        </p>
+    </div>
 
 
 
-{% endif %}
+{% endif %} <!-- user.is_authenticated -->
 
 
 
