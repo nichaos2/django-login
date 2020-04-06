@@ -15,6 +15,7 @@
 
     {% load static %}
 
+    {% get_media_prefix as MEDIA_URL_PREFIX %}
     <!-- Bootstrap core JavaScript -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
         integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
@@ -53,7 +54,7 @@
                             <li class="nav-item dropdown active">
                                 <a class="nav-link" href="#" id="navbarDropdown" role="button"
                                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    {{ user.username }} <img src="https://mdbootstrap.com/img/Photos/Avatars/avatar-5.jpg" class="rounded-circle z-depth-0"
+                                    {{ user.username }}  <img src="{{MEDIA_URL_PREFIX}}/{{user.profile.avatar}}" class="rounded-circle z-depth-0"
                                     alt="avatar image" height="45">
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
