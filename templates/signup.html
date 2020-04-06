@@ -5,7 +5,8 @@
 {% block content %}
 <div style=" width: 100%; max-width:530px; padding:15px; margin: 0 auto;">
   <h2>Sign up</h2>
-  <form method="post">
+  <h6>if you have already an account go to the <a href="{% url 'login' %}">login page</a></h6>
+  <form method="POST" enctype="multipart/form-data">
     {% csrf_token %}
     {{ form.as_p }}
     <button type="submit">Sign up</button>
