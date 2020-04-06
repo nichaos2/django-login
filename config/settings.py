@@ -132,6 +132,11 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+# Media to upload files (from data-flair tutorial)
+# https://data-flair.training/blogs/django-file-upload/
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
 # where the user is redirected after login
 LOGIN_REDIRECT_URL = 'home'
 LOGOUT_REDIRECT_URL = 'home'
