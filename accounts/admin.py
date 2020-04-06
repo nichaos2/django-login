@@ -13,6 +13,7 @@ class ProfileInline(admin.StackedInline):
 
 class CustomUserAdmin(UserAdmin):
     inlines = (ProfileInline, )
+    # show in the first page Users
     list_display = ('username', 'email', 'first_name', 'last_name', 'is_staff', 'get_role', 'get_location')
     list_select_related = ('profile', )
 
@@ -23,11 +24,11 @@ class CustomUserAdmin(UserAdmin):
     def get_role(self, instance):
         role = instance.profile.role
         if role == 1 :
-            role = 'Student'
+            role = 'Supervisor'
         elif role == 2 :
             role = 'Teacher'
         else:
-            role = 'Supervisor'
+            role = 'Student'
         return role
     get_role.short_description = 'role'
 
