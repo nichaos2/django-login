@@ -18,7 +18,7 @@ class Profile(models.Model):
     location = models.CharField(max_length=30, blank=True)
     birthdate = models.DateField(null=True, blank=True)
     role = models.PositiveSmallIntegerField(choices=ROLE_CHOICES, null=True, blank=True)
-    avatar = models.ImageField()
+    avatar = models.ImageField(upload_to='images/')
 
     def __str__(self):  # __unicode__ for Python 2
        return self.user.username
